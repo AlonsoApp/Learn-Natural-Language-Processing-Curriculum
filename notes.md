@@ -43,13 +43,13 @@ Every NLP task needs to do text normalisation.
 - *Lemma*: same stem, part of speech, rough word sense
 - * cat and cats = same lemma
 - *Wordform*: the full inflected surface form
-- * cat and cats = different wordforms 
+- * cat and cats = different wordforms
 ##### Word Types vs Tokens:
 **Example:** 
 > they lay back on the San Francisco grass and looked at the stars and their
 * *Type*: an element of the vocabulary. [the the = 1] 13 types (or 12) (or 11?) *V* = vocabulary |V| size of the vocabulary 
 * *Token*: an _instance_ of that type in running text. 15 tokens (or 14 if San Francisco = 1) *N* = number of Tokens
-*corpora or corpus (ES)* = a couple of datasets of text
+*corpora or corpus* = a couple of datasets of text
 Get all the **Vocabulary** of a text `corpora.txt` sorted by frequency 
 ```bash
 tr 'A-Z' 'a-z' < corpora.txt | tr -sc 'A-Za-z' '\n' | sort | uniq -c | sort -n -r | less
@@ -84,6 +84,14 @@ The most common Englis stemmer *Porter’s algorithm* bunch of rules (steps) to 
 Saber cuándo una frase termina para separar el corpus en frases.
 No es suficiente con separar por los ‘.’ porque no siempre significan end of sentence. Para eso se puede ir todo lo complejo que quieras desde utilizar un decission tree sencillo hasta SVM y NN.
 
+### Reading assignment 
+#### Text normalization
+Normalizing text means converting it to a more convenient, standard form.
+**Tokenization**: separating out or tokenizing words from running text. Using just white spaces as separators is not enough because some words separated by spaces are sometimes treated as large words e.g. _New York_ and _rock’n roll_. Tweets for example need emoticon and hashtag tokenization and Chinese has no spaces between words.
+**Lemmatization**: the task of determining that two words have the same root, despite their surface differences. e.g. _sang_, _sung_, and _sings_ are forms of the verb _sing_. 
+**Stemming**: refers to a simpler version of lemmatization in which we mainly just strip suffixes from the end of the word.
+**Sentence segmentation**: breaking up a text into individual sentences, using cues like periods or exclamation points.
+**Edit distance** It's a metric that measures how similar two strings are based on the number of edits (insertions, deletions, substitutions) it takes to change one string into the other. Used for example in _spelling correction_ and coreference resolution.
 
 ## Week 2 - Language Models & Lexicons (pre-deep learning)
 
