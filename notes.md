@@ -18,13 +18,13 @@ Making good progress:
 Still really hard:
 - Question answering (QA)
 - Paraphrase
-- Summarization
+- Summarisation
 - Dialog
 ### In this class
 Teaches key theory and methods for statistical NLP:
 - Viterbi
 - Naïve Bayes, Maxent classifiers
-- N-gram language modeling
+- N-gram language modelling
 - Statistical Parsing
 - Inverted index, tf-idf, vector models of meaning
 For practical, robust real-world applications
@@ -33,7 +33,56 @@ For practical, robust real-world applications
 - Information retrieval
 ### Text processing
 #### Regular expressions (Most basic)
+Most of the time in NLP we try to reduce two kind of errors: 
+- False positives (accuracy)
+- False negatives (recall)
+How to use regex in practical NLP
+On particular patterns such as: phone numbers, moth abbreviations, state names 
+#### Word Tokenisation
+Every NLP task needs to do text normalisation.
+- *Lemma*: same stem, part of speech, rough word sense
+- * cat and cats = same lemma
+- *Wordform*: the full inflected surface form
+- * cat and cats = different wordforms 
+##### Word Types vs Tokens:
+**Example:** 
+> they lay back on the San Francisco grass and looked at the stars and their
+* *Type*: an element of the vocabulary. [the the = 1] 13 types (or 12) (or 11?) *V* = vocabulary |V| size of the vocabulary 
+* *Token*: an _instance_ of that type in running text. 15 tokens (or 14 if San Francisco = 1) *N* = number of Tokens
+*corpora or corpus (ES)* = a couple of datasets of text
+Get all the **Vocabulary** of a text `corpora.txt` sorted by frequency 
+```bash
+tr 'A-Z' 'a-z' < corpora.txt | tr -sc 'A-Za-z' '\n' | sort | uniq -c | sort -n -r | less
+```
 
+##### Issues in Tokenisation
+* Finland’s capital -\> Finland Finlands Finland’s 
+* what’re, I’m, isn’t -\> What are, I am, is not
+* Hewlett-Packard -\> Hewlett Packard ?
+* state-of-the-art -\> state of the art ?
+* Lowercase -\> lower-case lowercase lower case ?
+* San Francisco -\> one token or two?
+* m.p.h., PhD. -\> ??
+* Chinese and Japanese no spaces between words. Multiple alphabets 
+Maximum Matching (also called Greedy): matches the largest match from the beginning of the word. Works well for Chinese
+#### Word Normalisation
+Implicitly define equivalent class of terms: U.S.A. = USA
+Reducing letters to lower case with a few exceptions such as words with caps in the middle of the sentence
+Lemmatising 
+* am, are, is -\> be
+* car, cars, car’s, cars’ -\> car
+##### Morphology
+* The small meaningful units that make up words
+* *Stems*: The core meaning-bearing units 
+* *Affixes*: Bits and pieces that adhere to stems (often with grammatical functions)
+* Ex: meaning|ful -\> stem|affix, unit|s -\> stem|affix, Stem|s, affix|es, etc…
+###### Stemming
+Reduce terms to their stems. 
+e.g., automate(s), automatic, automation all reduced to automat
+The most common Englis stemmer *Porter’s algorithm* bunch of rules (steps) to remove most of the affixes.
+#### Sentence Segmentation
+Saber cuándo una frase termina para separar el corpus en frases.
+No es suficiente con separar por los ‘.’ porque no siempre significan end of sentence. Para eso se puede ir todo lo complejo que quieras desde utilizar un decission tree sencillo hasta SVM y NN.
 
 
 ## Week 2 - Language Models & Lexicons (pre-deep learning)
