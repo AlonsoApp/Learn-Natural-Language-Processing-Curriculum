@@ -105,7 +105,7 @@ Normalizing text means converting it to a more convenient, standard form.
 The world has 7097 languages. Dentro de estos lenguajes existen dialectos y encima existe el _code switching_ que consiste en usar palabras de otros idiomas en la misma frase. También existe el genre que es en qué contexto sale el texto. No se habla igual en una película que en la calle. Age, gender, race, socio-economic class can all influence the linguistic properties of the text we are processing. Its important to consider who produced the language, in what context, for what purpose, and make sure that the models are fit to the data.
 
 ###### Minimum Edit distance
-minimum edit distance between two strings is defined as the minimum number of editing operations (operations like insertion, deletion, substitution) needed to transform one string into another. e.g. The gap between intention and execution, for example, is 5 (delete an i, substi- tute e for n, substitute x for t, insert c, substitute u for n).
+minimum edit distance between two strings is defined as the minimum number of editing operations (operations like insertion, deletion, substitution) needed to transform one string into another. e.g. The gap between intention and execution, for example, is 5 (delete an i, substitute e for n, substitute x for t, insert c, substitute u for n).
 
 ## Week 2 - Language Models & Lexicons (pre-deep learning)
 
