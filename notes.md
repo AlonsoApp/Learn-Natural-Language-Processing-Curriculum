@@ -37,7 +37,7 @@ Most of the time in NLP we try to reduce two kind of errors:
 - False positives (accuracy)
 - False negatives (recall)
 How to use regex in practical NLP
-On particular patterns such as: phone numbers, moth abbreviations, state names 
+On particular patterns such as: phone numbers, month abbreviations, state names 
 #### Word Tokenisation
 Every NLP task needs to do text normalisation.
 - *Lemma*: same stem, part of speech, rough word sense
@@ -79,7 +79,7 @@ Lemmatising
 ###### Stemming
 Reduce terms to their stems. 
 e.g., automate(s), automatic, automation all reduced to automat
-The most common Englis stemmer *Porter’s algorithm* bunch of rules (steps) to remove most of the affixes.
+The most common English stemmer *Porter’s algorithm* bunch of rules (steps) to remove most of the affixes.
 #### Sentence Segmentation
 Saber cuándo una frase termina para separar el corpus en frases.
 No es suficiente con separar por los ‘.’ porque no siempre significan end of sentence. Para eso se puede ir todo lo complejo que quieras desde utilizar un decission tree sencillo hasta SVM y NN.
